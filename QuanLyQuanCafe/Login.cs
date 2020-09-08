@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,6 @@ namespace QuanLyQuanCafe
         {
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // nhấn vào nút đăng nhập mở form table manager
@@ -38,9 +38,14 @@ namespace QuanLyQuanCafe
                 e.Cancel = true;
             }
         }
-        /*private void button1_Click(object sender, EventArgs e)
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }*/
+        }
+        /*private void button1_Click(object sender, EventArgs e)
+{
+
+}*/
     }
 }
