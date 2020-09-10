@@ -1,10 +1,12 @@
-﻿using System;
+﻿using QuanLyQuanCafe.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,13 +21,27 @@ namespace QuanLyQuanCafe
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // nhấn vào nút đăng nhập mở form table manager
-            TableManager f = new TableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string userName = txbUserName.Text;
+            string passWord = txbPassWord.Text;
+            if (fLogin(userName, passWord))
+            {
+                TableManager f = new TableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
+            }
+           
         }
 
+         bool fLogin(string userName, string passWord)
+        {
+
+            return AccountDAO.Instance.Login(userName, passWord);
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

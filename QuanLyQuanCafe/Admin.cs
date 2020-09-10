@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanCafe.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,33 +17,11 @@ namespace QuanLyQuanCafe
         public dtgvBill()
         {
             InitializeComponent();
-            LoadAccountList();
-        }
-        // kết nối database 
-        void LoadAccountList()
-        {
-            string connectionSTR = "Data Source = (local); Initial Catalog = QuanLyQuanCafe; Integrated Security = True";
-
-            SqlConnection connection = new SqlConnection(connectionSTR);
-
-            string query = "SELECT * FROM dbo.Account";
-
-            connection.Open();
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            DataTable data = new DataTable();
-
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-            adapter.Fill(data);
-
-            connection.Close();
-
-            dtgvAccount.DataSource = data;
-
 
         }
+
+       
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -84,6 +63,11 @@ namespace QuanLyQuanCafe
         }
 
         private void tpAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
