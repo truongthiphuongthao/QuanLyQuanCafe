@@ -38,5 +38,10 @@ namespace QuanLyQuanCafe.DAO
             }
             return listBillInfo;
         }
+
+        public void InsertBillInfo(int idBill, int idFood, int quantity)
+        {
+            DataProvider.Instance.ExecuteNonQuery("exec  USP_InsertBillInfo @idBill , @idFood , @quantity", new object[] { idBill, idFood, quantity });
+        }
     }
 }
