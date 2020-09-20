@@ -25,7 +25,8 @@ namespace QuanLyQuanCafe.DTO
             if(dateCheckOutTemp.ToString() != "")   
                this.DateCheckOut = (DateTime?)dateCheckOutTemp;
             this.Status = (int)row["status"];
-            this.Discount = (int)row["discount"];
+            if(row["discount"].ToString() != "")
+                this.Discount = (int)row["discount"];
         }
         private DateTime? dateCheckIn;
         private DateTime? dateCheckOut;
