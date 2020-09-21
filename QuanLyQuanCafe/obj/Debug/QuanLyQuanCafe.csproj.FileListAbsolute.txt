@@ -10,4 +10,4 @@ D:\PTUDWD\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.exe
 D:\PTUDWD\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.pdb
 D:\PTUDWD\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.TableManager.resources
 D:\PTUDWD\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.AccountProfile.resources
-D:\PTUDWD\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.dtgvBill.resources
+D:\PTUDWD\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.dtgvBill1.resources

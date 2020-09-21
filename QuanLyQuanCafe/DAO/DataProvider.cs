@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.DAO
 {
@@ -47,7 +48,7 @@ namespace QuanLyQuanCafe.DAO
                 }
 
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
-
+             
                 adapter.Fill(data);
 
                 connection.Close();
@@ -83,7 +84,6 @@ namespace QuanLyQuanCafe.DAO
                 }
 
                 data = command.ExecuteNonQuery();
-
                 connection.Close();
             }
 

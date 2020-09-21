@@ -12,11 +12,12 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanCafe
 {
-    public partial class dtgvBill : Form
+    public partial class dtgvBill1 : Form
     {
-        public dtgvBill()
+        public dtgvBill1()
         {
             InitializeComponent();
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
 
         }
 
@@ -68,6 +69,24 @@ namespace QuanLyQuanCafe
         }
 
         private void dtgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        #region methods
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut )
+        {
+           dtgvBill.DataSource =  BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
+        }
+        #endregion
+        #region events
+        private void btnViewBill_Click(object sender, EventArgs e)
+        {
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+
+        }
+        #endregion
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

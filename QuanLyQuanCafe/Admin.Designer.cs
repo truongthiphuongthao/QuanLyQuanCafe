@@ -1,6 +1,6 @@
 ﻿namespace QuanLyQuanCafe
 {
-    partial class dtgvBill
+    partial class dtgvBill1
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.btnViewBill = new System.Windows.Forms.Button();
             this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.tpFood = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -121,7 +121,7 @@
             this.tpBill.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.tpFood.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -220,6 +220,7 @@
             this.btnViewBill.TabIndex = 1;
             this.btnViewBill.Text = "Thống kê";
             this.btnViewBill.UseVisualStyleBackColor = true;
+            this.btnViewBill.Click += new System.EventHandler(this.btnViewBill_Click);
             // 
             // dtpkFromDate
             // 
@@ -230,19 +231,21 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dtgvBill);
             this.panel1.Location = new System.Drawing.Point(20, 38);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(715, 399);
             this.panel1.TabIndex = 1;
             // 
-            // dataGridView1
+            // dtgvBill
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(709, 393);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvBill.Location = new System.Drawing.Point(3, 3);
+            this.dtgvBill.Name = "dtgvBill";
+            this.dtgvBill.Size = new System.Drawing.Size(709, 393);
+            this.dtgvBill.TabIndex = 0;
+            this.dtgvBill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tpFood
             // 
@@ -1027,19 +1030,19 @@
             this.button14.Text = "button14";
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // dtgvBill
+            // dtgvBill1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 493);
             this.Controls.Add(this.tcAccount);
-            this.Name = "dtgvBill";
+            this.Name = "dtgvBill1";
             this.Text = "Admin";
             this.tcAccount.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tpFood.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -1100,7 +1103,7 @@
         private System.Windows.Forms.TabControl tcAccount;
         private System.Windows.Forms.TabPage tpBill;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvBill;
         private System.Windows.Forms.TabPage tpFoodCategory;
         private System.Windows.Forms.TabPage tpTable;
         private System.Windows.Forms.TabPage tpAccount;
