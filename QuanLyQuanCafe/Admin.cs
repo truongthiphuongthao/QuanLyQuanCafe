@@ -17,9 +17,7 @@ namespace QuanLyQuanCafe
         public dtgvBill1()
         {
             InitializeComponent();
-            LoadDateTimePickerBill();
-            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
-           
+            Load();
         }
 
 
@@ -74,6 +72,12 @@ namespace QuanLyQuanCafe
 
         }
         #region methods
+        void Load()
+        {
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadListFood();
+        }
         void LoadDateTimePickerBill()
         {
             DateTime today = DateTime.Now;
@@ -84,6 +88,10 @@ namespace QuanLyQuanCafe
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut )
         {
            dtgvBill.DataSource =  BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
+        }
+        void LoadListFood()
+        {
+            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
         }
         #endregion
         #region events
@@ -97,6 +105,11 @@ namespace QuanLyQuanCafe
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnShowFood_Click(object sender, EventArgs e)
+        {
+            LoadListFood();
         }
     }
 }
