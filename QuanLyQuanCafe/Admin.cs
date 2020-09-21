@@ -17,8 +17,9 @@ namespace QuanLyQuanCafe
         public dtgvBill1()
         {
             InitializeComponent();
+            LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
-
+           
         }
 
 
@@ -73,6 +74,13 @@ namespace QuanLyQuanCafe
 
         }
         #region methods
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
+
+        }
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut )
         {
            dtgvBill.DataSource =  BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
