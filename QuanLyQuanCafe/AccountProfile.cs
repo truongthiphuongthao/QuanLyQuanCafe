@@ -62,7 +62,7 @@ namespace QuanLyQuanCafe
             this.Close();
 
         }
-        void UpdateAccount()
+        void UpdateAccountInfo()
         {
             string displayName = txbDisplayName.Text;
             string password = txbPassWord.Text;
@@ -78,12 +78,20 @@ namespace QuanLyQuanCafe
                 if(AccountDAO.Instance.UpdateAccount(userName, displayName, password, newpass))
                 {
                     MessageBox.Show("Cập nhật thành công");
+                    if (updateAccount != null)
+                        updateAccount(this, new AccountEvent(AccountDAO.Instance.GetAccountByUserName(userName)));
                 }
                 else
                 {
                     MessageBox.Show("Vui lòng điền đúng mật khẩu");
                 }
             }
+        }
+        private event EventHandler<AccountEvent> updateAccount;
+        public event EventHandler<AccountEvent> UpdateAccount
+        {
+            add { updateAccount += value; }
+            remove { updateAccount -= value; }
         }
         private void AccountProfile_Load(object sender, EventArgs e)
         {
@@ -92,8 +100,23 @@ namespace QuanLyQuanCafe
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateAccount();
+            UpdateAccountInfo();
 
+        }
+    }
+    public class AccountEvent : EventArgs
+    {
+        private Account acc;
+
+        public Account Acc 
+        {
+            get { return acc; }
+            set { acc = value; }
+        }
+
+        public AccountEvent(Account acc)
+        {
+            this.Acc = acc;
         }
     }
 }

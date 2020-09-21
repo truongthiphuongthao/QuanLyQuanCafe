@@ -158,10 +158,15 @@ namespace QuanLyQuanCafe
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AccountProfile f = new AccountProfile(LoginAccount);
+            f.UpdateAccount += f_UpdateAccount;
             f.ShowDialog();
 
         }
 
+        void f_UpdateAccount(object sender, AccountEvent e)
+        {
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
+        }
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dtgvBill1 f = new dtgvBill1();
