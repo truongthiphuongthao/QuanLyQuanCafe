@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanCafe.DTO;
+using System;
 using System.Data;
 
 namespace QuanLyQuanCafe.DAO
@@ -16,6 +17,13 @@ namespace QuanLyQuanCafe.DAO
         {
 
         }
+        
+        public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[]{userName, displayName, pass, newPass});
+
+            return result > 0;
+        }
 
         public bool Login(string userName, string passWord)
         {
@@ -25,6 +33,16 @@ namespace QuanLyQuanCafe.DAO
 
             return result.Rows.Count > 0;
 
+        }
+        
+        public Account GetAccountByUserName(string userName )
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("select * from dbo.Account where UserName = '" + userName + "'");
+            foreach(DataRow item in data.Rows)
+            {
+                return new Account(item);
+            }
+            return null;
         }
     }
 }

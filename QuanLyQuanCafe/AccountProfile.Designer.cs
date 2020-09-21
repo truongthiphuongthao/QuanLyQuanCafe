@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pannel = new System.Windows.Forms.Panel();
-            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txbUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -54,21 +54,21 @@
             // 
             // pannel
             // 
-            this.pannel.Controls.Add(this.txtUserName);
+            this.pannel.Controls.Add(this.txbUserName);
             this.pannel.Controls.Add(this.label1);
             this.pannel.Location = new System.Drawing.Point(12, 12);
             this.pannel.Name = "pannel";
             this.pannel.Size = new System.Drawing.Size(465, 60);
             this.pannel.TabIndex = 1;
             // 
-            // txtUserName
+            // txbUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(167, 21);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.ReadOnly = true;
-            this.txtUserName.Size = new System.Drawing.Size(295, 20);
-            this.txtUserName.TabIndex = 1;
-            this.txtUserName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txbUserName.Location = new System.Drawing.Point(167, 21);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.ReadOnly = true;
+            this.txbUserName.Size = new System.Drawing.Size(295, 20);
+            this.txbUserName.TabIndex = 1;
+            this.txbUserName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -122,6 +122,7 @@
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(295, 20);
             this.txbPassWord.TabIndex = 1;
+            this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -147,8 +148,10 @@
             // 
             this.txbNewPass.Location = new System.Drawing.Point(167, 21);
             this.txbNewPass.Name = "txbNewPass";
+            this.txbNewPass.PasswordChar = '*';
             this.txbNewPass.Size = new System.Drawing.Size(295, 20);
             this.txbNewPass.TabIndex = 1;
+            this.txbNewPass.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -174,8 +177,10 @@
             // 
             this.txbReEnterPass.Location = new System.Drawing.Point(167, 21);
             this.txbReEnterPass.Name = "txbReEnterPass";
+            this.txbReEnterPass.PasswordChar = '*';
             this.txbReEnterPass.Size = new System.Drawing.Size(295, 20);
             this.txbReEnterPass.TabIndex = 1;
+            this.txbReEnterPass.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -196,6 +201,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnExit
             // 
@@ -225,6 +231,7 @@
             this.Name = "AccountProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin cá nhân";
+            this.Load += new System.EventHandler(this.AccountProfile_Load);
             this.pannel.ResumeLayout(false);
             this.pannel.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -242,7 +249,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pannel;
-        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txbUserName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txbDisplayName;
