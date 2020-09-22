@@ -321,6 +321,7 @@
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // btnDeleteFood
             // 
@@ -339,6 +340,7 @@
             this.btnEditFood.TabIndex = 2;
             this.btnEditFood.Text = "Sửa";
             this.btnEditFood.UseVisualStyleBackColor = true;
+            this.btnEditFood.Click += new System.EventHandler(this.btnEditFood_Click);
             // 
             // panel5
             // 
@@ -422,7 +424,6 @@
             // 
             this.txbFoodName.Location = new System.Drawing.Point(128, 12);
             this.txbFoodName.Name = "txbFoodName";
-            this.txbFoodName.ReadOnly = true;
             this.txbFoodName.Size = new System.Drawing.Size(210, 20);
             this.txbFoodName.TabIndex = 1;
             // 

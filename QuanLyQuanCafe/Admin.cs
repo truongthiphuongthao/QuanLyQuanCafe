@@ -96,9 +96,9 @@ namespace QuanLyQuanCafe
         }
         void AddFoodBinding()
         {
-            txbFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name"));
-            txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id"));
-            nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price"));
+            txbFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id", true, DataSourceUpdateMode.Never));
+            nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price", true, DataSourceUpdateMode.Never));
 
         }
         void LoadCategoryIntoCombobox(ComboBox cb)
@@ -153,6 +153,41 @@ namespace QuanLyQuanCafe
                 cbFoodCategory.SelectedIndex = index;
                // }
             }
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            string name = txbFoodName.Text;
+            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+            float price = (float) nmFoodPrice.Value;
+            if(FoodDAO.Instance.InsertFood(name, categoryID, price))
+            {
+                MessageBox.Show("Thêm món thành công");
+                LoadListFood();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm thức ăn");
+            }
+
+        }
+
+        private void btnEditFood_Click(object sender, EventArgs e)
+        {
+            string name = txbFoodName.Text;
+            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)nmFoodPrice.Value;
+            int id = Convert.ToInt32(txbFoodID.Text);
+            if (FoodDAO.Instance.UpdateFood(id, name, categoryID, price))
+            {
+                MessageBox.Show("Sửa món thành công");
+                LoadListFood();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa thức ăn");
+            }
+
         }
     }
 }
