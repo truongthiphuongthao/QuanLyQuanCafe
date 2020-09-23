@@ -59,8 +59,8 @@
             this.txbFoodID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button21 = new System.Windows.Forms.Button();
+            this.txbSearchFoodName = new System.Windows.Forms.TextBox();
+            this.btnSearchFood = new System.Windows.Forms.Button();
             this.tpFoodCategory = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -468,28 +468,29 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox5);
-            this.panel4.Controls.Add(this.button21);
+            this.panel4.Controls.Add(this.txbSearchFoodName);
+            this.panel4.Controls.Add(this.btnSearchFood);
             this.panel4.Location = new System.Drawing.Point(394, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(350, 56);
             this.panel4.TabIndex = 6;
             // 
-            // textBox5
+            // txbSearchFoodName
             // 
-            this.textBox5.Location = new System.Drawing.Point(25, 19);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(227, 20);
-            this.textBox5.TabIndex = 2;
+            this.txbSearchFoodName.Location = new System.Drawing.Point(25, 19);
+            this.txbSearchFoodName.Name = "txbSearchFoodName";
+            this.txbSearchFoodName.Size = new System.Drawing.Size(227, 20);
+            this.txbSearchFoodName.TabIndex = 2;
             // 
-            // button21
+            // btnSearchFood
             // 
-            this.button21.Location = new System.Drawing.Point(259, 3);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(88, 50);
-            this.button21.TabIndex = 1;
-            this.button21.Text = "Tìm";
-            this.button21.UseVisualStyleBackColor = true;
+            this.btnSearchFood.Location = new System.Drawing.Point(259, 3);
+            this.btnSearchFood.Name = "btnSearchFood";
+            this.btnSearchFood.Size = new System.Drawing.Size(88, 50);
+            this.btnSearchFood.TabIndex = 1;
+            this.btnSearchFood.Text = "Tìm";
+            this.btnSearchFood.UseVisualStyleBackColor = true;
+            this.btnSearchFood.Click += new System.EventHandler(this.btnSearchFood_Click);
             // 
             // tpFoodCategory
             // 
@@ -1041,7 +1042,7 @@
             this.ClientSize = new System.Drawing.Size(800, 493);
             this.Controls.Add(this.tcAccount);
             this.Name = "dtgvBill1";
-            this.Text = "Admin";
+            this.Text = "gg";
             this.tcAccount.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1154,8 +1155,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dtgvFood;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.TextBox txbSearchFoodName;
+        private System.Windows.Forms.Button btnSearchFood;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnShowCategory;

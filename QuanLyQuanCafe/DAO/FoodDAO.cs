@@ -54,7 +54,21 @@ namespace QuanLyQuanCafe.DAO
             }
             return list;
         }
+        public List<Food> SearchFoodByName(string name)
+        {
+            List<Food> list = new List<Food>();
 
+            string query = string.Format("select * from dbo.Food where dbo.GetUnsignString(name) like N'%' + dbo.GetUnsignString(N'{0}') + '%'", name);
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Food food = new Food(item);
+                list.Add(food);
+            }
+            return list;
+        }
         public bool InsertFood(string name, int id, float price)
         {
             string query = string.Format("INSERT dbo.Food(name,idCategory, price) VALUES (N'{0}', {1}, {2})", name, id, price);
