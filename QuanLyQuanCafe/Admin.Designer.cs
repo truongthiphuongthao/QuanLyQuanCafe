@@ -105,7 +105,6 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -117,6 +116,7 @@
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
             this.button14 = new System.Windows.Forms.Button();
+            this.txbAccountType = new System.Windows.Forms.TextBox();
             this.tcAccount.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -870,6 +870,7 @@
             this.btnShowAccount.TabIndex = 3;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -920,20 +921,12 @@
             // 
             // panel24
             // 
-            this.panel24.Controls.Add(this.cbAccountType);
+            this.panel24.Controls.Add(this.txbAccountType);
             this.panel24.Controls.Add(this.label14);
             this.panel24.Location = new System.Drawing.Point(6, 99);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(341, 42);
             this.panel24.TabIndex = 3;
-            // 
-            // cbAccountType
-            // 
-            this.cbAccountType.FormattingEnabled = true;
-            this.cbAccountType.Location = new System.Drawing.Point(128, 12);
-            this.cbAccountType.Name = "cbAccountType";
-            this.cbAccountType.Size = new System.Drawing.Size(210, 21);
-            this.cbAccountType.TabIndex = 1;
             // 
             // label14
             // 
@@ -1035,6 +1028,14 @@
             this.button14.Text = "button14";
             this.button14.UseVisualStyleBackColor = true;
             // 
+            // txbAccountType
+            // 
+            this.txbAccountType.Location = new System.Drawing.Point(128, 13);
+            this.txbAccountType.Name = "txbAccountType";
+            this.txbAccountType.ReadOnly = true;
+            this.txbAccountType.Size = new System.Drawing.Size(210, 20);
+            this.txbAccountType.TabIndex = 2;
+            // 
             // dtgvBill1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1118,7 +1119,6 @@
         private System.Windows.Forms.TabPage tpFood;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.ComboBox cbAccountType;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.TextBox txbDisplayName;
@@ -1194,5 +1194,6 @@
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.DataGridView dtgvTable;
+        private System.Windows.Forms.TextBox txbAccountType;
     }
 }

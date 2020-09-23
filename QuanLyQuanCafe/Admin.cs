@@ -16,6 +16,8 @@ namespace QuanLyQuanCafe
     public partial class dtgvBill1 : Form
     {
         BindingSource foodList = new BindingSource();
+
+        BindingSource accountList = new BindingSource();
         public dtgvBill1()
         {
             InitializeComponent();
@@ -83,11 +85,24 @@ namespace QuanLyQuanCafe
         void Load()
         {
             dtgvFood.DataSource = foodList;
+            dtgvAccount.DataSource = accountList;
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadListFood();
+            LoadAccount();
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBinding();
+            AddAccountBinding();
+        }
+        void AddAccountBinding()
+        {
+            txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
+            txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
+            txbAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+        }
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
         void LoadDateTimePickerBill()
         {
@@ -119,6 +134,10 @@ namespace QuanLyQuanCafe
         #endregion
 
         #region events
+        private void btnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
         private void btnViewBill_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
@@ -242,8 +261,9 @@ namespace QuanLyQuanCafe
             add { updateFood += value; }
             remove { updateFood -= value; }
         }
+
         #endregion
-        
+
        
     }
 }
