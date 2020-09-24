@@ -105,6 +105,7 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -116,7 +117,6 @@
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
             this.button14 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tcAccount.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -155,12 +155,12 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel25.SuspendLayout();
             this.panel26.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAccount
@@ -285,6 +285,7 @@
             this.dtgvFood.Name = "dtgvFood";
             this.dtgvFood.Size = new System.Drawing.Size(382, 354);
             this.dtgvFood.TabIndex = 7;
+            this.dtgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellContentClick);
             // 
             // tableLayoutPanel1
             // 
@@ -524,11 +525,13 @@
             // 
             // dtgvCategory
             // 
+            this.dtgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvCategory.Location = new System.Drawing.Point(3, 3);
             this.dtgvCategory.Name = "dtgvCategory";
             this.dtgvCategory.Size = new System.Drawing.Size(382, 357);
             this.dtgvCategory.TabIndex = 7;
+            this.dtgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCategory_CellContentClick);
             // 
             // tableLayoutPanel2
             // 
@@ -556,6 +559,7 @@
             this.btnShowCategory.TabIndex = 3;
             this.btnShowCategory.Text = "Xem";
             this.btnShowCategory.UseVisualStyleBackColor = true;
+            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
             // 
             // btnAddCategory
             // 
@@ -678,6 +682,7 @@
             // 
             // dtgvTable
             // 
+            this.dtgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTable.Location = new System.Drawing.Point(3, 3);
             this.dtgvTable.Name = "dtgvTable";
@@ -710,6 +715,7 @@
             this.btnShowTable.TabIndex = 3;
             this.btnShowTable.Text = "Xem";
             this.btnShowTable.UseVisualStyleBackColor = true;
+            this.btnShowTable.Click += new System.EventHandler(this.btnShowTable_Click);
             // 
             // btnAddTable
             // 
@@ -933,6 +939,18 @@
             this.panel24.Size = new System.Drawing.Size(341, 42);
             this.panel24.TabIndex = 3;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(128, 14);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown1.TabIndex = 1;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -1007,9 +1025,11 @@
             // 
             // dtgvAccount
             // 
+            this.dtgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvAccount.Location = new System.Drawing.Point(3, 3);
             this.dtgvAccount.Name = "dtgvAccount";
+            this.dtgvAccount.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvAccount.Size = new System.Drawing.Size(382, 351);
             this.dtgvAccount.TabIndex = 0;
             this.dtgvAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvAccount_CellContentClick);
@@ -1030,18 +1050,6 @@
             this.button14.TabIndex = 2;
             this.button14.Text = "button14";
             this.button14.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(128, 14);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 20);
-            this.numericUpDown1.TabIndex = 1;
             // 
             // dtgvBill1
             // 
@@ -1100,6 +1108,7 @@
             this.panel22.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel26.ResumeLayout(false);
@@ -1107,7 +1116,6 @@
             this.flowLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -16,7 +16,6 @@ namespace QuanLyQuanCafe
     public partial class dtgvBill1 : Form
     {
         BindingSource foodList = new BindingSource();
-
         BindingSource accountList = new BindingSource();
         public Account loginAccount;
 
@@ -92,6 +91,8 @@ namespace QuanLyQuanCafe
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadListFood();
+            LoadListCategory();
+            LoadListTable();
             LoadAccount();
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBinding();
@@ -103,6 +104,7 @@ namespace QuanLyQuanCafe
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
             numericUpDown1.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
         }
+        
         void LoadAccount()
         {
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
@@ -133,6 +135,14 @@ namespace QuanLyQuanCafe
         void LoadListFood()
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
+        }
+        void LoadListCategory()
+        {
+            dtgvCategory.DataSource = CategoryDAO.Instance.GetListCategory();
+        }
+        void LoadListTable()
+        {
+            dtgvTable.DataSource = TableDAO.Instance.LoadTableList();
         }
         void AddAccount(string userName, string displayName, int type)
         {
@@ -344,11 +354,26 @@ namespace QuanLyQuanCafe
             add { updateFood += value; }
             remove { updateFood -= value; }
         }
+         private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
+        }
 
         #endregion
 
-       
+        private void dtgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadListCategory();
+        }
+
+        private void btnShowTable_Click(object sender, EventArgs e)
+        {
+            LoadListTable();
+        }
     }
 }
