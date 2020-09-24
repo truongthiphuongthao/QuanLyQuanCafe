@@ -72,7 +72,7 @@
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbCategoryName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txbCategoryID = new System.Windows.Forms.TextBox();
@@ -569,6 +569,7 @@
             this.btnAddCategory.TabIndex = 0;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // btnDeleteCategory
             // 
@@ -578,6 +579,7 @@
             this.btnDeleteCategory.TabIndex = 1;
             this.btnDeleteCategory.Text = "Xóa";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -587,6 +589,7 @@
             this.btnEditCategory.TabIndex = 2;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // panel8
             // 
@@ -599,20 +602,19 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.textBox1);
+            this.panel11.Controls.Add(this.txbCategoryName);
             this.panel11.Controls.Add(this.label7);
             this.panel11.Location = new System.Drawing.Point(6, 51);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(341, 42);
             this.panel11.TabIndex = 2;
             // 
-            // textBox1
+            // txbCategoryName
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(198, 20);
-            this.textBox1.TabIndex = 1;
+            this.txbCategoryName.Location = new System.Drawing.Point(140, 12);
+            this.txbCategoryName.Name = "txbCategoryName";
+            this.txbCategoryName.Size = new System.Drawing.Size(198, 20);
+            this.txbCategoryName.TabIndex = 1;
             // 
             // label7
             // 
@@ -1181,7 +1183,7 @@
         private System.Windows.Forms.Button btnEditCategory;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbCategoryName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox txbCategoryID;

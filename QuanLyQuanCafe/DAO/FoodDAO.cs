@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.DAO
 {
@@ -72,6 +73,7 @@ namespace QuanLyQuanCafe.DAO
         public bool InsertFood(string name, int id, float price)
         {
             string query = string.Format("INSERT dbo.Food(name,idCategory, price) VALUES (N'{0}', {1}, {2})", name, id, price);
+            MessageBox.Show(query);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
