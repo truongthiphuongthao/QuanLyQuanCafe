@@ -170,6 +170,7 @@ namespace QuanLyQuanCafe
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dtgvBill1 f = new dtgvBill1();
+            f.loginAccount = LoginAccount;
             f.InsertFood += f_InsertFood;
             f.DeleteFood += f_DeleteFood;
             f.UpdateFood += f_UpdateFood;
@@ -193,6 +194,7 @@ namespace QuanLyQuanCafe
 
         void f_InsertFood(object sender, EventArgs e)
         {
+            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             if(lsvBill.Tag != null)
                 ShowBill((lsvBill.Tag as Table).ID);

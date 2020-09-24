@@ -47,5 +47,34 @@ namespace QuanLyQuanCafe.DAO
             }
             return null;
         }
+        public bool InsertAccount(string userName, string displayName, int type)
+        {
+            string query = string.Format("INSERT dbo.Account( UserName, DisplayName, Type) VALUES (N'{0}', N'{1}', {2})", userName, displayName, type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateAccount(string userName, string displayName, int type)
+        {
+            string query = string.Format("update dbo.Account set DisplayName = N'{1}', Type = {2} where UserName = N'{0}'", userName, displayName, type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+
+        }
+        public bool DeleteAccount(string userName)
+        {
+
+            string query = string.Format("Delete Account where UserName = N'{0}'", userName);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+
+        }
+
+        public bool ResetPassword(string userName)
+        {
+            string query = string.Format("Update Account set Password = N'0' where UserName = N'{0}'", userName);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }
