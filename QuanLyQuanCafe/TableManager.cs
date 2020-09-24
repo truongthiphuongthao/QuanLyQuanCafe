@@ -205,13 +205,13 @@ namespace QuanLyQuanCafe
         void f_InsertFood(object sender, EventArgs e)
         {
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
-            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
+          //  LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             if(lsvBill.Tag != null)
                 ShowBill((lsvBill.Tag as Table).ID);
         }
-        
 
-       
+
+
 
         private void flpTable_Paint(object sender, PaintEventArgs e)
         {

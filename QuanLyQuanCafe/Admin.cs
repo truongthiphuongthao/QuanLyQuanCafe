@@ -18,6 +18,7 @@ namespace QuanLyQuanCafe
         BindingSource foodList = new BindingSource();
         BindingSource accountList = new BindingSource();
         BindingSource categoryList = new BindingSource();
+        BindingSource tableList = new BindingSource();
         public Account loginAccount;
 
         public dtgvBill1()
@@ -90,6 +91,7 @@ namespace QuanLyQuanCafe
             dtgvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;
             dtgvCategory.DataSource = categoryList;
+            dtgvTable.DataSource = tableList;
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadListFood();
@@ -99,6 +101,8 @@ namespace QuanLyQuanCafe
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBinding();
             AddCategoryBinding();
+            AddTableBinding();
+            LoadTableIntoCombobox(cbTableStatus);
             AddAccountBinding();
         }
         void AddAccountBinding()
@@ -130,14 +134,26 @@ namespace QuanLyQuanCafe
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price", true, DataSourceUpdateMode.Never));
 
         }
+        void AddTableBinding()
+        {
+            txbTableId.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "id", true, DataSourceUpdateMode.Never));
+            txbTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "name", true, DataSourceUpdateMode.Never)); 
+        }
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
             cb.DataSource = CategoryDAO.Instance.GetListCategory();
             cb.DisplayMember = "Name";
         }
 
+        void LoadTableIntoCombobox(ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "status";
+        }
+
         void LoadListFood()
         {
+            LoadListCategory();
             foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
         void AddCategoryBinding()
@@ -151,7 +167,7 @@ namespace QuanLyQuanCafe
         }
         void LoadListTable()
         {
-            dtgvTable.DataSource = TableDAO.Instance.LoadTableList();
+            tableList.DataSource = TableDAO.Instance.LoadTableList();
         }
         void AddAccount(string userName, string displayName, int type)
         {
@@ -325,6 +341,22 @@ namespace QuanLyQuanCafe
 
         }
 
+        private void btnAddTable_Click(object sender, EventArgs e)
+        {
+            string name = txbTableName.Text;
+            if (TableDAO.Instance.InsertTable(name))
+            {
+                MessageBox.Show("Thêm bàn ăn thành công");
+                LoadListTable();
+                if (insertTable != null)
+                    insertTable(this, new EventArgs());
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm bàn ăn");
+            }
+
+        }
 
         private void btnEditFood_Click(object sender, EventArgs e)
         {
@@ -363,6 +395,24 @@ namespace QuanLyQuanCafe
 
         }
 
+        private void btnEditTable_Click(object sender, EventArgs e)
+        {
+            string name = txbTableName.Text;
+            int tableID = Convert.ToInt32(txbTableId.Text);
+            string status = (cbTableStatus.SelectedItem as Table).Status;
+            if (TableDAO.Instance.UpdateTable(tableID, name, status))
+            {
+                MessageBox.Show("Sửa bàn ăn thành công");
+                LoadListTable();
+                if (updateTable != null)
+                    updateTable(this, new EventArgs());
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa bàn ăn");
+            }
+        }
+
         private void btnDeleteFood_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbFoodID.Text);
@@ -394,17 +444,42 @@ namespace QuanLyQuanCafe
             }
         }
 
+        private void btnDeleteTable_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbTableId.Text);
+            if (TableDAO.Instance.DeleteTable(id))
+            {
+                MessageBox.Show("Xóa bàn ăn thành công");
+                LoadListTable();
+                if (deleteTable != null)
+                    deleteTable(this, new EventArgs());
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa bàn ăn");
+            }
+        }
+
+
         private event EventHandler insertFood;
         public event EventHandler InsertFood
         {
             add { insertFood += value; }
             remove { insertFood -= value; }
         }
+
         private event EventHandler insertCategory;
         public event EventHandler InsertCategory
         {
             add { insertCategory += value; }
             remove { insertCategory -= value; }
+        }
+
+        private event EventHandler insertTable;
+        public event EventHandler InsertTable
+        {
+            add { insertTable += value; }
+            remove { insertTable -= value; }
         }
 
         private event EventHandler deleteFood;
@@ -421,6 +496,13 @@ namespace QuanLyQuanCafe
             remove { deleteCategory -= value; }
         }
 
+        private event EventHandler deleteTable;
+        public event EventHandler DeleteTable
+        {
+            add { deleteTable += value; }
+            remove { deleteTable -= value; }
+        }
+
         private event EventHandler updateFood;
         public event EventHandler UpdateFood
         {
@@ -432,6 +514,12 @@ namespace QuanLyQuanCafe
         {
             add { updateCategory += value; }
             remove { updateCategory -= value; }
+        }
+        private event EventHandler updateTable;
+        public event EventHandler UpdateTable
+        {
+            add { updateTable += value; }
+            remove { updateTable -= value; }
         }
         private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -455,8 +543,11 @@ namespace QuanLyQuanCafe
 
 
 
+
+
+
         #endregion
 
-       
+    
     }
 }

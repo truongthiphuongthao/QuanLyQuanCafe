@@ -727,6 +727,7 @@
             this.btnAddTable.TabIndex = 0;
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // btnDeleteTable
             // 
@@ -736,6 +737,7 @@
             this.btnDeleteTable.TabIndex = 1;
             this.btnDeleteTable.Text = "Xóa";
             this.btnDeleteTable.UseVisualStyleBackColor = true;
+            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
             // 
             // btnEditTable
             // 
@@ -745,6 +747,7 @@
             this.btnEditTable.TabIndex = 2;
             this.btnEditTable.Text = "Sửa";
             this.btnEditTable.UseVisualStyleBackColor = true;
+            this.btnEditTable.Click += new System.EventHandler(this.btnEditTable_Click);
             // 
             // panel10
             // 
@@ -798,7 +801,6 @@
             // 
             this.txbTableName.Location = new System.Drawing.Point(140, 12);
             this.txbTableName.Name = "txbTableName";
-            this.txbTableName.ReadOnly = true;
             this.txbTableName.Size = new System.Drawing.Size(198, 20);
             this.txbTableName.TabIndex = 1;
             // 
