@@ -1,4 +1,5 @@
-﻿using QuanLyQuanCafe.DAO;
+﻿using Microsoft.Win32;
+using QuanLyQuanCafe.DAO;
 using QuanLyQuanCafe.DTO;
 using System;
 using System.Collections.Generic;
@@ -41,8 +42,7 @@ namespace QuanLyQuanCafe
 
          bool fLogin(string userName, string passWord)
         {
-
-            return AccountDAO.Instance.Login(userName, passWord);
+          return AccountDAO.Instance.Login(userName, passWord);
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
