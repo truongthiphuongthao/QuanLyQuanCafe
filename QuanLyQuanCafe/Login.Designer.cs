@@ -89,6 +89,7 @@
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(295, 20);
             this.txbPassWord.TabIndex = 2;
+            this.txbPassWord.Text = "123";
             this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // text
@@ -109,6 +110,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(465, 60);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txbUserName
             // 
@@ -116,6 +118,7 @@
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(295, 20);
             this.txbUserName.TabIndex = 1;
+            this.txbUserName.Text = "admin";
             this.txbUserName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1

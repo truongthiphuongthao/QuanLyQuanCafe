@@ -690,6 +690,7 @@
             this.dtgvTable.Name = "dtgvTable";
             this.dtgvTable.Size = new System.Drawing.Size(382, 357);
             this.dtgvTable.TabIndex = 0;
+            this.dtgvTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTable_CellContentClick);
             // 
             // tableLayoutPanel4
             // 
@@ -771,6 +772,8 @@
             // 
             // cbTableStatus
             // 
+            this.cbTableStatus.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbTableStatus.Enabled = false;
             this.cbTableStatus.FormattingEnabled = true;
             this.cbTableStatus.Location = new System.Drawing.Point(143, 12);
             this.cbTableStatus.Name = "cbTableStatus";
@@ -803,6 +806,7 @@
             this.txbTableName.Name = "txbTableName";
             this.txbTableName.Size = new System.Drawing.Size(198, 20);
             this.txbTableName.TabIndex = 1;
+            this.txbTableName.TextChanged += new System.EventHandler(this.txbTableName_TextChanged);
             // 
             // label5
             // 
@@ -1063,6 +1067,7 @@
             this.Controls.Add(this.tcAccount);
             this.Name = "dtgvBill1";
             this.Text = "gg";
+            this.Load += new System.EventHandler(this.dtgvBill1_Load);
             this.tcAccount.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

@@ -19,7 +19,16 @@ namespace QuanLyQuanCafe.DTO
         {
             this.ID = (int)row["id"];
             this.Name = row["name"].ToString();
-            this.categoryID = (int)row["idCategory"];
+            if (row["idCategory"] == DBNull.Value)
+            {
+                this.categoryID = -1; // e handle truong hop null
+            }
+            else
+            {
+                this.categoryID = (int)row["idCategory"];
+            }
+            
+            
             this.price = (float)Convert.ToDouble(row["price"].ToString());
         }
         private int iD;

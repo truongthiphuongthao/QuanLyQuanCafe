@@ -20,6 +20,12 @@ namespace QuanLyQuanCafe
         public Login()
         {
             InitializeComponent();
+
+            Account loginAccount = AccountDAO.Instance.GetAccountByUserName("admin");
+            TableManager f = new TableManager(loginAccount);
+            this.Hide();
+            f.ShowDialog();
+            // this.Show();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -37,12 +43,12 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
             }
-           
+
         }
 
-         bool fLogin(string userName, string passWord)
+        bool fLogin(string userName, string passWord)
         {
-          return AccountDAO.Instance.Login(userName, passWord);
+            return AccountDAO.Instance.Login(userName, passWord);
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -61,9 +67,14 @@ namespace QuanLyQuanCafe
         {
 
         }
-        /*private void button1_Click(object sender, EventArgs e)
-{
 
-}*/
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

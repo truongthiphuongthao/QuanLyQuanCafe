@@ -54,7 +54,7 @@ namespace QuanLyQuanCafe
             cbFood.DataSource = listFood;
             cbFood.DisplayMember = "Name";
         }
-        void LoadTable()
+        public void LoadTable()
         {
             flpTable.Controls.Clear();
             List<Table> tableList = TableDAO.Instance.LoadTableList();
@@ -184,7 +184,10 @@ namespace QuanLyQuanCafe
             f.InsertFood += f_InsertFood;
             f.DeleteFood += f_DeleteFood;
             f.UpdateFood += f_UpdateFood;
+            f.tableManagerForm = this;
+            
             f.ShowDialog();
+            
         }
         void f_UpdateFood(object sender, EventArgs e)
         {
@@ -199,7 +202,7 @@ namespace QuanLyQuanCafe
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             if (lsvBill.Tag != null)
                 ShowBill((lsvBill.Tag as Table).ID);
-                LoadTable();
+            LoadTable();
         }
 
         void f_InsertFood(object sender, EventArgs e)

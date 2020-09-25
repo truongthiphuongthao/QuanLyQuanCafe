@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyQuanCafe.DAO
 {
@@ -39,7 +40,7 @@ namespace QuanLyQuanCafe.DAO
             }    
             return tableList;
         }
-
+        // Loi nay giong loi hoi nay, e tu sua dc k ? e chua biet nua
         public bool InsertTable(string name)
         {
             string query = string.Format("INSERT dbo.TableFood(name) VALUES (N'{0}')", name);

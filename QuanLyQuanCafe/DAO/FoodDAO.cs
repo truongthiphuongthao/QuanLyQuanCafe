@@ -96,7 +96,7 @@ namespace QuanLyQuanCafe.DAO
 
         public bool DeleteFoodCategory(int idCategory)
         {
-            string query = string.Format("Delete Food where idCategory = {0}", idCategory);
+            string query = string.Format("Delete Food where idCategory = {0} ", idCategory);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

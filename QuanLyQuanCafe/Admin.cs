@@ -15,6 +15,7 @@ namespace QuanLyQuanCafe
 {
     public partial class dtgvBill1 : Form
     {
+        public TableManager tableManagerForm = null;
         BindingSource foodList = new BindingSource();
         BindingSource accountList = new BindingSource();
         BindingSource categoryList = new BindingSource();
@@ -24,11 +25,8 @@ namespace QuanLyQuanCafe
         public dtgvBill1()
         {
             InitializeComponent();
-            Load();
+            LoadData();
         }
-
-
-
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -86,7 +84,7 @@ namespace QuanLyQuanCafe
 
             return listFood;
         }
-        void Load()
+        void LoadData()
         {
             dtgvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;
@@ -104,6 +102,7 @@ namespace QuanLyQuanCafe
             AddTableBinding();
             LoadTableIntoCombobox(cbTableStatus);
             AddAccountBinding();
+            
         }
         void AddAccountBinding()
         {
@@ -136,8 +135,16 @@ namespace QuanLyQuanCafe
         }
         void AddTableBinding()
         {
+            // binding tung field tu DataSource vao view
+
+            // binding cho input tableId
             txbTableId.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "id", true, DataSourceUpdateMode.Never));
+               
+            // binding cho input table Name
             txbTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "name", true, DataSourceUpdateMode.Never)); 
+                
+            // binding cho combo box
+            cbTableStatus.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "status", true, DataSourceUpdateMode.Never));
         }
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
@@ -282,6 +289,12 @@ namespace QuanLyQuanCafe
                 {
                     int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
                     Category category = CategoryDAO.Instance.GetCategoryByID(id);
+
+                    if (category == null)
+                    {
+                        return;
+                    }
+
                     cbFoodCategory.SelectedItem = category;
                     int index = -1;
                     int i = 0;
@@ -333,6 +346,8 @@ namespace QuanLyQuanCafe
                 LoadListCategory();
                 if (insertCategory != null)
                     insertCategory(this, new EventArgs());
+
+                
             }
             else
             {
@@ -350,6 +365,7 @@ namespace QuanLyQuanCafe
                 LoadListTable();
                 if (insertTable != null)
                     insertTable(this, new EventArgs());
+                this.tableManagerForm.LoadTable();
             }
             else
             {
@@ -400,12 +416,14 @@ namespace QuanLyQuanCafe
             string name = txbTableName.Text;
             int tableID = Convert.ToInt32(txbTableId.Text);
             string status = (cbTableStatus.SelectedItem as Table).Status;
+            MessageBox.Show(status);
             if (TableDAO.Instance.UpdateTable(tableID, name, status))
             {
                 MessageBox.Show("Sửa bàn ăn thành công");
                 LoadListTable();
                 if (updateTable != null)
                     updateTable(this, new EventArgs());
+                this.tableManagerForm.LoadTable();
             }
             else
             {
@@ -422,9 +440,10 @@ namespace QuanLyQuanCafe
                 LoadListFood();
                 if (deleteFood != null)
                     deleteFood(this, new EventArgs());
+                this.tableManagerForm.LoadTable();
             }
             else
-            {
+            { 
                 MessageBox.Show("Có lỗi khi xóa thức ăn");
             }
         }
@@ -447,17 +466,28 @@ namespace QuanLyQuanCafe
         private void btnDeleteTable_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbTableId.Text);
-            if (TableDAO.Instance.DeleteTable(id))
+            string status = cbTableStatus.Text;
+            if(status != "Trống")
             {
-                MessageBox.Show("Xóa bàn ăn thành công");
-                LoadListTable();
-                if (deleteTable != null)
-                    deleteTable(this, new EventArgs());
+                MessageBox.Show("Bàn ăn này chưa thanh toán, không thể xóa được");
+                return;
             }
             else
             {
-                MessageBox.Show("Có lỗi khi xóa bàn ăn");
+                if (TableDAO.Instance.DeleteTable(id))
+                {
+                    MessageBox.Show("Xóa bàn ăn thành công");
+                    LoadListTable();
+                    if (deleteTable != null)
+                        deleteTable(this, new EventArgs());
+                    this.tableManagerForm.LoadTable();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi xóa bàn ăn");
+                }
             }
+           
         }
 
 
@@ -546,8 +576,22 @@ namespace QuanLyQuanCafe
 
 
 
+
         #endregion
 
-    
+        private void txbTableName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dtgvBill1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
