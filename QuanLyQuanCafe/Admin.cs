@@ -131,10 +131,12 @@ namespace QuanLyQuanCafe
             txbFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name", true, DataSourceUpdateMode.Never));
             txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id", true, DataSourceUpdateMode.Never));
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price", true, DataSourceUpdateMode.Never));
-
+            //cbFoodCategory.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "idCategory", true, DataSourceUpdateMode.Never));
+            // cho a xin schema
         }
         void AddTableBinding()
         {
+
             // binding tung field tu DataSource vao view
 
             // binding cho input tableId
@@ -282,39 +284,37 @@ namespace QuanLyQuanCafe
             foodList.DataSource = SearchFoodByName(txbSearchFoodName.Text);
         }
         private void txbFoodID_TextChanged(object sender, EventArgs e)
-        {
-            try
+        {            
+            if (foodList.Count > 0 && dtgvFood.SelectedCells.Count > 0 && dtgvFood.SelectedCells[0].OwningRow.Cells.Count > 0)
             {
-                if (dtgvFood.SelectedCells.Count > 0)
+                // Console.WriteLine(dtgvFood.SelectedCells.Count);
+                int id = -1;
+                try
                 {
-                    int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
-                    Category category = CategoryDAO.Instance.GetCategoryByID(id);
-
-                    if (category == null)
-                    {
-                        return;
-                    }
-
-                    cbFoodCategory.SelectedItem = category;
-                    int index = -1;
-                    int i = 0;
-                    foreach (Category item in cbFoodCategory.Items)
-                    {
-                        if (item.ID == category.ID)
-                        {
-                            index = i;
-                            break;
-                        }
-                        i++;
-                    }
-                    cbFoodCategory.SelectedIndex = index;
+                    id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
                 }
-            }
-            catch
-            {
+                catch (Exception err)
+                {
+                    Console.WriteLine(err.ToString());
+                }
+                Category category = CategoryDAO.Instance.GetCategoryByID(id);
+                if (category == null)
+                    return;
 
+                cbFoodCategory.SelectedItem = category;
+                int index = -1;
+                int i = 0;
+                foreach (Category item in cbFoodCategory.Items)
+                {
+                    if (item.ID == category.ID)
+                    {
+                        index = i;
+                        break;
+                    }
+                    i++;
+                }
+                cbFoodCategory.SelectedIndex = index;
             }
-
         }
 
         private void btnAddFood_Click(object sender, EventArgs e)
@@ -327,6 +327,7 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Thêm món thành công");
                 LoadListFood();
+
                 if (insertFood != null)
                     insertFood(this, new EventArgs());
             }
@@ -344,10 +345,11 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Thêm danh mục thành công");
                 LoadListCategory();
+                LoadCategoryIntoCombobox(cbFoodCategory);
                 if (insertCategory != null)
                     insertCategory(this, new EventArgs());
+                tableManagerForm.LoadCategory();
 
-                
             }
             else
             {
@@ -401,8 +403,10 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Sửa danh mục thành công");
                 LoadListCategory();
-                if(updateCategory != null)
+                LoadCategoryIntoCombobox(cbFoodCategory);
+                if (updateCategory != null)
                     updateCategory(this, new EventArgs());
+                tableManagerForm.LoadCategory();
             }
             else
             {
@@ -454,8 +458,11 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Xóa danh mục thành công");
                 LoadListCategory();
+                LoadCategoryIntoCombobox(cbFoodCategory);
+
                 if (deleteCategory != null)
                     deleteCategory(this, new EventArgs());
+                tableManagerForm.LoadCategory();
             }
             else
             {
@@ -639,6 +646,26 @@ namespace QuanLyQuanCafe
             dtgvBill.DataSource = BillDAO.Instance.GetBillListByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value, Convert.ToInt32(txbPageBill.Text));
         }
 
-       
+        private void cbFoodCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dtgvFood_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void rpViewer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           //MessageBox.Show("Will call update");
+           foodList.DataSource = FoodDAO.Instance.GetListFood();
+           //dtgvFood.DataSource = foodList;
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

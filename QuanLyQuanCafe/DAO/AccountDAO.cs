@@ -28,29 +28,26 @@ namespace QuanLyQuanCafe.DAO
         public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
         {
             int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[]{userName, displayName, pass, newPass});
-
             return result > 0;
         }
 
         public bool Login(string userName, string passWord)
         {
-            byte[] temp = ASCIIEncoding.ASCII.GetBytes(passWord);
+          /*  byte[] temp = ASCIIEncoding.ASCII.GetBytes(passWord);
             byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
 
             string hasPass = "";
             foreach(byte item in hasData)
             {
                 hasPass += item;
-            }
+            }*/
 
             //var list = hashData.ToString();
             //list.Reverse();
            
             string query = "USP_Login @userName , @passWord ";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[]{userName, hasPass /*list*/});
-
-            Console.WriteLine(hasPass);
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
 
             return result.Rows.Count > 0;
 
@@ -67,7 +64,7 @@ namespace QuanLyQuanCafe.DAO
         }
         public bool InsertAccount(string userName, string displayName, int type)
         {
-            string query = string.Format("INSERT dbo.Account( UserName, DisplayName, Type, Password) VALUES (N'{0}', N'{1}', {2}, N'{3}')", userName, displayName, type, "3244185981728979115075721453575112");
+            string query = string.Format("INSERT dbo.Account( UserName, DisplayName, Type, Password) VALUES (N'{0}', N'{1}', {2}, N'{3}')", userName, displayName, type, "admin");
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
@@ -90,7 +87,7 @@ namespace QuanLyQuanCafe.DAO
 
         public bool ResetPassword(string userName)
         {
-            string query = string.Format("Update Account set Password = N'3244185981728979115075721453575112' where UserName = N'{0}'", userName);
+            string query = string.Format("Update Account set Password = N'0' where UserName = N'{0}'", userName);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

@@ -21,7 +21,7 @@ namespace QuanLyQuanCafe.DTO
             this.Name = row["name"].ToString();
             if (row["idCategory"] == DBNull.Value)
             {
-                this.categoryID = -1; // e handle truong hop null
+                this.categoryID = -1; 
             }
             else
             {

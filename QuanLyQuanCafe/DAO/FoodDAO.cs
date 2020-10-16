@@ -44,8 +44,7 @@ namespace QuanLyQuanCafe.DAO
         {
             List<Food> list = new List<Food>();
 
-            string query = "select * from dbo.Food";
-
+            string query = "select * from dbo.Food where idCategory is not NULL";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
@@ -53,6 +52,8 @@ namespace QuanLyQuanCafe.DAO
                 Food food = new Food(item);
                 list.Add(food);
             }
+
+            Console.WriteLine("FoodFetched: " + list.Count.ToString());
             return list;
         }
         public List<Food> SearchFoodByName(string name)
@@ -73,7 +74,7 @@ namespace QuanLyQuanCafe.DAO
         public bool InsertFood(string name, int id, float price)
         {
             string query = string.Format("INSERT dbo.Food(name,idCategory, price) VALUES (N'{0}', {1}, {2})", name, id, price);
-            MessageBox.Show(query);
+           // MessageBox.Show(query);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

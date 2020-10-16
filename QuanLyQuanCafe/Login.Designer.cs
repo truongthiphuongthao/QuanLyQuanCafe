@@ -55,29 +55,32 @@
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(363, 176);
+            this.btnExit.Location = new System.Drawing.Point(401, 160);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(93, 39);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(282, 176);
+            this.btnLogin.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLogin.Location = new System.Drawing.Point(293, 160);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(102, 39);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.txbPassWord);
             this.panel3.Controls.Add(this.text);
+            this.panel3.ForeColor = System.Drawing.Color.Navy;
             this.panel3.Location = new System.Drawing.Point(29, 89);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(465, 65);
@@ -89,13 +92,14 @@
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(295, 20);
             this.txbPassWord.TabIndex = 2;
-            this.txbPassWord.Text = "123";
             this.txbPassWord.UseSystemPasswordChar = true;
+            this.txbPassWord.TextChanged += new System.EventHandler(this.txbPassWord_TextChanged);
             // 
             // text
             // 
             this.text.AutoSize = true;
             this.text.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.text.Location = new System.Drawing.Point(15, 22);
             this.text.Name = "text";
             this.text.Size = new System.Drawing.Size(84, 19);
@@ -106,6 +110,7 @@
             // 
             this.panel2.Controls.Add(this.txbUserName);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.ForeColor = System.Drawing.Color.Navy;
             this.panel2.Location = new System.Drawing.Point(29, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(465, 60);
@@ -114,17 +119,18 @@
             // 
             // txbUserName
             // 
+            this.txbUserName.BackColor = System.Drawing.SystemColors.Window;
             this.txbUserName.Location = new System.Drawing.Point(167, 21);
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(295, 20);
             this.txbUserName.TabIndex = 1;
-            this.txbUserName.Text = "admin";
             this.txbUserName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.label1.Location = new System.Drawing.Point(15, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 19);

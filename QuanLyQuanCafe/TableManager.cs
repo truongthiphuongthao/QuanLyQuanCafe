@@ -41,12 +41,15 @@ namespace QuanLyQuanCafe
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
 
         }
-        void LoadCategory() 
+        public void LoadCategory() 
         {
             List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
 
             cbCategory.DataSource = listCategory;
             cbCategory.DisplayMember = "Name";
+
+            cbCategory.SelectedIndex = -1;
+
         }
         void LoadFoodListByCategoryID(int id) 
         {
@@ -191,6 +194,8 @@ namespace QuanLyQuanCafe
         }
         void f_UpdateFood(object sender, EventArgs e)
         {
+            if (cbCategory.SelectedItem == null)
+                return;
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             if (lsvBill.Tag != null)
                 ShowBill((lsvBill.Tag as Table).ID);
@@ -199,6 +204,8 @@ namespace QuanLyQuanCafe
 
         void f_DeleteFood(object sender, EventArgs e)
         {
+            if (cbCategory.SelectedItem == null)
+                return;
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             if (lsvBill.Tag != null)
                 ShowBill((lsvBill.Tag as Table).ID);
@@ -207,14 +214,14 @@ namespace QuanLyQuanCafe
 
         void f_InsertFood(object sender, EventArgs e)
         {
+            Console.WriteLine(cbCategory);
+
+            if (cbCategory.SelectedItem == null)
+                return;
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
-          //  LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             if(lsvBill.Tag != null)
                 ShowBill((lsvBill.Tag as Table).ID);
         }
-
-
-
 
         private void flpTable_Paint(object sender, PaintEventArgs e)
         {

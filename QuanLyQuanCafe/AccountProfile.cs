@@ -81,7 +81,7 @@ namespace QuanLyQuanCafe
                     if (updateAccount != null)
                         updateAccount(this, new AccountEvent(AccountDAO.Instance.GetAccountByUserName(userName)));
                 }
-                else
+               else
                 {
                     MessageBox.Show("Vui lòng điền đúng mật khẩu");
                 }
@@ -101,6 +101,11 @@ namespace QuanLyQuanCafe
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateAccountInfo();
+
+        }
+
+        private void txbPassWord_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
