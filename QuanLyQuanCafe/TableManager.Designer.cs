@@ -147,6 +147,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.lsvBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(0, 3);
@@ -193,10 +194,10 @@
             // 
             this.txbTotalPrice.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTotalPrice.ForeColor = System.Drawing.Color.OrangeRed;
-            this.txbTotalPrice.Location = new System.Drawing.Point(254, 3);
+            this.txbTotalPrice.Location = new System.Drawing.Point(240, 9);
             this.txbTotalPrice.Name = "txbTotalPrice";
             this.txbTotalPrice.ReadOnly = true;
-            this.txbTotalPrice.Size = new System.Drawing.Size(85, 25);
+            this.txbTotalPrice.Size = new System.Drawing.Size(99, 25);
             this.txbTotalPrice.TabIndex = 7;
             this.txbTotalPrice.Text = "0";
             this.txbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -204,38 +205,42 @@
             // cbSwitchTable
             // 
             this.cbSwitchTable.FormattingEnabled = true;
-            this.cbSwitchTable.Location = new System.Drawing.Point(15, 25);
+            this.cbSwitchTable.Location = new System.Drawing.Point(103, 12);
             this.cbSwitchTable.Name = "cbSwitchTable";
-            this.cbSwitchTable.Size = new System.Drawing.Size(75, 21);
+            this.cbSwitchTable.Size = new System.Drawing.Size(65, 21);
             this.cbSwitchTable.TabIndex = 3;
             // 
             // btnSwitchTable
             // 
-            this.btnSwitchTable.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnSwitchTable.Location = new System.Drawing.Point(15, 3);
+            this.btnSwitchTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSwitchTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitchTable.ForeColor = System.Drawing.Color.White;
+            this.btnSwitchTable.Location = new System.Drawing.Point(0, 5);
             this.btnSwitchTable.Name = "btnSwitchTable";
-            this.btnSwitchTable.Size = new System.Drawing.Size(75, 23);
+            this.btnSwitchTable.Size = new System.Drawing.Size(97, 33);
             this.btnSwitchTable.TabIndex = 6;
-            this.btnSwitchTable.Text = "Chuyển bàn";
+            this.btnSwitchTable.Text = "CHUYỂN BÀN";
             this.btnSwitchTable.UseVisualStyleBackColor = false;
             this.btnSwitchTable.Click += new System.EventHandler(this.btnSwitchTable_Click);
             // 
             // nmDisCount
             // 
-            this.nmDisCount.Location = new System.Drawing.Point(254, 25);
+            this.nmDisCount.Location = new System.Drawing.Point(174, 13);
             this.nmDisCount.Name = "nmDisCount";
-            this.nmDisCount.Size = new System.Drawing.Size(85, 20);
+            this.nmDisCount.Size = new System.Drawing.Size(60, 20);
             this.nmDisCount.TabIndex = 5;
             this.nmDisCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.BackColor = System.Drawing.Color.Pink;
+            this.btnCheckOut.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckOut.ForeColor = System.Drawing.Color.White;
             this.btnCheckOut.Location = new System.Drawing.Point(345, -1);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(85, 44);
             this.btnCheckOut.TabIndex = 3;
-            this.btnCheckOut.Text = "Thanh toán";
+            this.btnCheckOut.Text = "THANH TOÁN";
             this.btnCheckOut.UseVisualStyleBackColor = false;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
@@ -270,12 +275,14 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnAddFood.Location = new System.Drawing.Point(289, 3);
+            this.btnAddFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFood.ForeColor = System.Drawing.Color.White;
+            this.btnAddFood.Location = new System.Drawing.Point(280, 3);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(75, 44);
+            this.btnAddFood.Size = new System.Drawing.Size(84, 44);
             this.btnAddFood.TabIndex = 2;
-            this.btnAddFood.Text = "Thêm món";
+            this.btnAddFood.Text = "THÊM MÓN";
             this.btnAddFood.UseVisualStyleBackColor = false;
             this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
@@ -284,7 +291,7 @@
             this.cbFood.FormattingEnabled = true;
             this.cbFood.Location = new System.Drawing.Point(3, 26);
             this.cbFood.Name = "cbFood";
-            this.cbFood.Size = new System.Drawing.Size(280, 21);
+            this.cbFood.Size = new System.Drawing.Size(271, 21);
             this.cbFood.TabIndex = 1;
             // 
             // cbCategory
@@ -292,7 +299,7 @@
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(3, 3);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(280, 21);
+            this.cbCategory.Size = new System.Drawing.Size(271, 21);
             this.cbCategory.TabIndex = 0;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 

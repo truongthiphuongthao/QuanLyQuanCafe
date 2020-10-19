@@ -1,5 +1,6 @@
 ﻿using QuanLyQuanCafe.DTO;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
@@ -21,9 +22,17 @@ namespace QuanLyQuanCafe.DAO
         {
 
         }
-        public DataTable GetListAccount()
+        public List<Account> GetListAccount()
         {
-            return DataProvider.Instance.ExecuteQuery("select UserName, DisplayName, Type from dbo.Account");
+            var list = new List<Account>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("select UserName, DisplayName, Type from dbo.Account");
+
+            foreach (DataRow item in data.Rows)
+            {
+                Account account = new Account(item);
+                list.Add(account);
+            }
+            return list;
         }
         public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
         {

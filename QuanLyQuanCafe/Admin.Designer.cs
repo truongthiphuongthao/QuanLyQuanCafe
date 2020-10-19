@@ -35,6 +35,7 @@
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
@@ -111,8 +112,8 @@
             this.tpBill = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dtpkToDate = new System.Windows.Forms.DateTimePicker();
-            this.btnViewBill = new System.Windows.Forms.Button();
             this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
+            this.btnViewBill = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLastBillPage = new System.Windows.Forms.Button();
             this.txbPageBill = new System.Windows.Forms.TextBox();
@@ -121,7 +122,6 @@
             this.btnFirstBillPage = new System.Windows.Forms.Button();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.rpViewer = new System.Windows.Forms.TabControl();
-            this.btnResetPassword = new System.Windows.Forms.Button();
             this.tpAccount.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -176,7 +176,7 @@
             this.tpAccount.Location = new System.Drawing.Point(4, 22);
             this.tpAccount.Name = "tpAccount";
             this.tpAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccount.Size = new System.Drawing.Size(756, 443);
+            this.tpAccount.Size = new System.Drawing.Size(756, 455);
             this.tpAccount.TabIndex = 4;
             this.tpAccount.Text = "Tài khoản";
             this.tpAccount.UseVisualStyleBackColor = true;
@@ -202,7 +202,9 @@
             // 
             // btnShowAccount
             // 
-            this.btnShowAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnShowAccount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnShowAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAccount.ForeColor = System.Drawing.Color.White;
             this.btnShowAccount.Location = new System.Drawing.Point(291, 3);
             this.btnShowAccount.Name = "btnShowAccount";
             this.btnShowAccount.Size = new System.Drawing.Size(91, 54);
@@ -213,8 +215,9 @@
             // 
             // btnAddAccount
             // 
-            this.btnAddAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAccount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAccount.ForeColor = System.Drawing.Color.White;
             this.btnAddAccount.Location = new System.Drawing.Point(3, 3);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(90, 54);
@@ -225,7 +228,9 @@
             // 
             // btnDeleteAccount
             // 
-            this.btnDeleteAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnDeleteAccount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteAccount.ForeColor = System.Drawing.Color.White;
             this.btnDeleteAccount.Location = new System.Drawing.Point(99, 3);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
             this.btnDeleteAccount.Size = new System.Drawing.Size(90, 54);
@@ -236,7 +241,9 @@
             // 
             // btnEditAccount
             // 
-            this.btnEditAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnEditAccount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditAccount.ForeColor = System.Drawing.Color.White;
             this.btnEditAccount.Location = new System.Drawing.Point(195, 3);
             this.btnEditAccount.Name = "btnEditAccount";
             this.btnEditAccount.Size = new System.Drawing.Size(90, 54);
@@ -255,6 +262,19 @@
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(356, 358);
             this.panel22.TabIndex = 15;
+            // 
+            // btnResetPassword
+            // 
+            this.btnResetPassword.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPassword.ForeColor = System.Drawing.Color.White;
+            this.btnResetPassword.Location = new System.Drawing.Point(202, 157);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(142, 55);
+            this.btnResetPassword.TabIndex = 4;
+            this.btnResetPassword.Text = "ĐẶT LẠI MẬT KHẨU";
+            this.btnResetPassword.UseVisualStyleBackColor = false;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // panel24
             // 
@@ -385,7 +405,7 @@
             this.tpTable.Location = new System.Drawing.Point(4, 22);
             this.tpTable.Name = "tpTable";
             this.tpTable.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTable.Size = new System.Drawing.Size(756, 443);
+            this.tpTable.Size = new System.Drawing.Size(756, 455);
             this.tpTable.TabIndex = 3;
             this.tpTable.Text = "Bàn ăn";
             this.tpTable.UseVisualStyleBackColor = true;
@@ -439,7 +459,9 @@
             // 
             // btnShowTable
             // 
-            this.btnShowTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnShowTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnShowTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowTable.ForeColor = System.Drawing.Color.White;
             this.btnShowTable.Location = new System.Drawing.Point(294, 3);
             this.btnShowTable.Name = "btnShowTable";
             this.btnShowTable.Size = new System.Drawing.Size(91, 47);
@@ -450,7 +472,9 @@
             // 
             // btnAddTable
             // 
-            this.btnAddTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTable.ForeColor = System.Drawing.Color.White;
             this.btnAddTable.Location = new System.Drawing.Point(3, 3);
             this.btnAddTable.Name = "btnAddTable";
             this.btnAddTable.Size = new System.Drawing.Size(91, 47);
@@ -461,7 +485,9 @@
             // 
             // btnDeleteTable
             // 
-            this.btnDeleteTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnDeleteTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTable.ForeColor = System.Drawing.Color.White;
             this.btnDeleteTable.Location = new System.Drawing.Point(100, 3);
             this.btnDeleteTable.Name = "btnDeleteTable";
             this.btnDeleteTable.Size = new System.Drawing.Size(91, 47);
@@ -472,7 +498,9 @@
             // 
             // btnEditTable
             // 
-            this.btnEditTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnEditTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditTable.ForeColor = System.Drawing.Color.White;
             this.btnEditTable.Location = new System.Drawing.Point(197, 3);
             this.btnEditTable.Name = "btnEditTable";
             this.btnEditTable.Size = new System.Drawing.Size(91, 47);
@@ -503,7 +531,7 @@
             // 
             // cbTableStatus
             // 
-            this.cbTableStatus.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbTableStatus.BackColor = System.Drawing.SystemColors.HighlightText;
             this.cbTableStatus.Enabled = false;
             this.cbTableStatus.FormattingEnabled = true;
             this.cbTableStatus.Location = new System.Drawing.Point(143, 12);
@@ -560,6 +588,7 @@
             // 
             // txbTableId
             // 
+            this.txbTableId.BackColor = System.Drawing.Color.Silver;
             this.txbTableId.Location = new System.Drawing.Point(140, 12);
             this.txbTableId.Name = "txbTableId";
             this.txbTableId.ReadOnly = true;
@@ -582,7 +611,7 @@
             this.tpFoodCategory.Location = new System.Drawing.Point(4, 22);
             this.tpFoodCategory.Name = "tpFoodCategory";
             this.tpFoodCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFoodCategory.Size = new System.Drawing.Size(756, 443);
+            this.tpFoodCategory.Size = new System.Drawing.Size(756, 455);
             this.tpFoodCategory.TabIndex = 2;
             this.tpFoodCategory.Text = "Danh mục";
             this.tpFoodCategory.UseVisualStyleBackColor = true;
@@ -607,6 +636,7 @@
             // 
             // dtgvCategory
             // 
+            this.dtgvCategory.AllowUserToResizeRows = false;
             this.dtgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvCategory.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -636,7 +666,9 @@
             // 
             // btnShowCategory
             // 
-            this.btnShowCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnShowCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnShowCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowCategory.ForeColor = System.Drawing.Color.White;
             this.btnShowCategory.Location = new System.Drawing.Point(294, 3);
             this.btnShowCategory.Name = "btnShowCategory";
             this.btnShowCategory.Size = new System.Drawing.Size(91, 47);
@@ -647,7 +679,9 @@
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCategory.ForeColor = System.Drawing.Color.White;
             this.btnAddCategory.Location = new System.Drawing.Point(3, 3);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(90, 47);
@@ -658,7 +692,9 @@
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnDeleteCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCategory.ForeColor = System.Drawing.Color.White;
             this.btnDeleteCategory.Location = new System.Drawing.Point(100, 3);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(90, 47);
@@ -669,7 +705,9 @@
             // 
             // btnEditCategory
             // 
-            this.btnEditCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnEditCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCategory.ForeColor = System.Drawing.Color.White;
             this.btnEditCategory.Location = new System.Drawing.Point(197, 3);
             this.btnEditCategory.Name = "btnEditCategory";
             this.btnEditCategory.Size = new System.Drawing.Size(90, 47);
@@ -724,6 +762,7 @@
             // 
             // txbCategoryID
             // 
+            this.txbCategoryID.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.txbCategoryID.Location = new System.Drawing.Point(140, 12);
             this.txbCategoryID.Name = "txbCategoryID";
             this.txbCategoryID.ReadOnly = true;
@@ -746,7 +785,7 @@
             this.tpFood.Location = new System.Drawing.Point(4, 22);
             this.tpFood.Name = "tpFood";
             this.tpFood.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFood.Size = new System.Drawing.Size(756, 443);
+            this.tpFood.Size = new System.Drawing.Size(756, 455);
             this.tpFood.TabIndex = 1;
             this.tpFood.Text = "Thức ăn";
             this.tpFood.UseVisualStyleBackColor = true;
@@ -772,12 +811,15 @@
             // 
             // dtgvFood
             // 
+            this.dtgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvFood.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvFood.Location = new System.Drawing.Point(3, 3);
             this.dtgvFood.Name = "dtgvFood";
+            this.dtgvFood.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dtgvFood.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvFood.Size = new System.Drawing.Size(382, 354);
             this.dtgvFood.TabIndex = 7;
+            this.dtgvFood.VirtualMode = true;
             this.dtgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellContentClick_1);
             // 
             // tableLayoutPanel1
@@ -800,7 +842,9 @@
             // 
             // btnShowFood
             // 
-            this.btnShowFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnShowFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnShowFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowFood.ForeColor = System.Drawing.Color.White;
             this.btnShowFood.Location = new System.Drawing.Point(294, 3);
             this.btnShowFood.Name = "btnShowFood";
             this.btnShowFood.Size = new System.Drawing.Size(91, 50);
@@ -811,7 +855,9 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFood.ForeColor = System.Drawing.Color.White;
             this.btnAddFood.Location = new System.Drawing.Point(3, 3);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(91, 50);
@@ -822,7 +868,9 @@
             // 
             // btnDeleteFood
             // 
-            this.btnDeleteFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnDeleteFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFood.ForeColor = System.Drawing.Color.White;
             this.btnDeleteFood.Location = new System.Drawing.Point(100, 3);
             this.btnDeleteFood.Name = "btnDeleteFood";
             this.btnDeleteFood.Size = new System.Drawing.Size(91, 50);
@@ -833,7 +881,9 @@
             // 
             // btnEditFood
             // 
-            this.btnEditFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnEditFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditFood.ForeColor = System.Drawing.Color.White;
             this.btnEditFood.Location = new System.Drawing.Point(197, 3);
             this.btnEditFood.Name = "btnEditFood";
             this.btnEditFood.Size = new System.Drawing.Size(91, 50);
@@ -940,6 +990,7 @@
             // 
             // panel16
             // 
+            this.panel16.BackColor = System.Drawing.Color.White;
             this.panel16.Controls.Add(this.txbFoodID);
             this.panel16.Controls.Add(this.label4);
             this.panel16.Location = new System.Drawing.Point(6, 3);
@@ -949,6 +1000,7 @@
             // 
             // txbFoodID
             // 
+            this.txbFoodID.BackColor = System.Drawing.Color.Silver;
             this.txbFoodID.Location = new System.Drawing.Point(128, 12);
             this.txbFoodID.Name = "txbFoodID";
             this.txbFoodID.ReadOnly = true;
@@ -959,6 +1011,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(15, 11);
             this.label4.Name = "label4";
@@ -984,7 +1037,9 @@
             // 
             // btnSearchFood
             // 
-            this.btnSearchFood.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSearchFood.BackColor = System.Drawing.Color.Gray;
+            this.btnSearchFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFood.ForeColor = System.Drawing.Color.White;
             this.btnSearchFood.Location = new System.Drawing.Point(259, 3);
             this.btnSearchFood.Name = "btnSearchFood";
             this.btnSearchFood.Size = new System.Drawing.Size(88, 50);
@@ -1000,7 +1055,7 @@
             this.tpBill.Location = new System.Drawing.Point(4, 22);
             this.tpBill.Name = "tpBill";
             this.tpBill.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBill.Size = new System.Drawing.Size(756, 443);
+            this.tpBill.Size = new System.Drawing.Size(756, 455);
             this.tpBill.TabIndex = 0;
             this.tpBill.Text = "Doanh thu";
             this.tpBill.UseVisualStyleBackColor = true;
@@ -1029,23 +1084,25 @@
             this.dtpkToDate.TabIndex = 2;
             this.dtpkToDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // btnViewBill
-            // 
-            this.btnViewBill.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnViewBill.Location = new System.Drawing.Point(241, 3);
-            this.btnViewBill.Name = "btnViewBill";
-            this.btnViewBill.Size = new System.Drawing.Size(232, 23);
-            this.btnViewBill.TabIndex = 1;
-            this.btnViewBill.Text = "Thống kê";
-            this.btnViewBill.UseVisualStyleBackColor = false;
-            this.btnViewBill.Click += new System.EventHandler(this.btnViewBill_Click);
-            // 
             // dtpkFromDate
             // 
             this.dtpkFromDate.Location = new System.Drawing.Point(3, 3);
             this.dtpkFromDate.Name = "dtpkFromDate";
             this.dtpkFromDate.Size = new System.Drawing.Size(232, 20);
             this.dtpkFromDate.TabIndex = 0;
+            // 
+            // btnViewBill
+            // 
+            this.btnViewBill.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewBill.ForeColor = System.Drawing.Color.White;
+            this.btnViewBill.Location = new System.Drawing.Point(241, 3);
+            this.btnViewBill.Name = "btnViewBill";
+            this.btnViewBill.Size = new System.Drawing.Size(232, 23);
+            this.btnViewBill.TabIndex = 1;
+            this.btnViewBill.Text = "THỐNG KÊ";
+            this.btnViewBill.UseVisualStyleBackColor = false;
+            this.btnViewBill.Click += new System.EventHandler(this.btnViewBill_Click);
             // 
             // panel1
             // 
@@ -1057,24 +1114,26 @@
             this.panel1.Controls.Add(this.dtgvBill);
             this.panel1.Location = new System.Drawing.Point(20, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(715, 399);
+            this.panel1.Size = new System.Drawing.Size(715, 411);
             this.panel1.TabIndex = 1;
             // 
             // btnLastBillPage
             // 
-            this.btnLastBillPage.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnLastBillPage.Location = new System.Drawing.Point(637, 366);
+            this.btnLastBillPage.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLastBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLastBillPage.ForeColor = System.Drawing.Color.White;
+            this.btnLastBillPage.Location = new System.Drawing.Point(637, 378);
             this.btnLastBillPage.Name = "btnLastBillPage";
             this.btnLastBillPage.Size = new System.Drawing.Size(75, 30);
             this.btnLastBillPage.TabIndex = 7;
-            this.btnLastBillPage.Text = "Last";
+            this.btnLastBillPage.Text = "CUỐI";
             this.btnLastBillPage.UseVisualStyleBackColor = false;
             this.btnLastBillPage.Click += new System.EventHandler(this.btnLastBillPage_Click);
             // 
             // txbPageBill
             // 
             this.txbPageBill.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txbPageBill.Location = new System.Drawing.Point(283, 372);
+            this.txbPageBill.Location = new System.Drawing.Point(284, 384);
             this.txbPageBill.Name = "txbPageBill";
             this.txbPageBill.ReadOnly = true;
             this.txbPageBill.Size = new System.Drawing.Size(156, 20);
@@ -1085,34 +1144,40 @@
             // 
             // btnNextBillPage
             // 
-            this.btnNextBillPage.BackColor = System.Drawing.Color.Salmon;
-            this.btnNextBillPage.Location = new System.Drawing.Point(556, 366);
+            this.btnNextBillPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnNextBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextBillPage.ForeColor = System.Drawing.Color.White;
+            this.btnNextBillPage.Location = new System.Drawing.Point(556, 378);
             this.btnNextBillPage.Name = "btnNextBillPage";
             this.btnNextBillPage.Size = new System.Drawing.Size(75, 30);
             this.btnNextBillPage.TabIndex = 4;
-            this.btnNextBillPage.Text = "Next";
+            this.btnNextBillPage.Text = "KẾ";
             this.btnNextBillPage.UseVisualStyleBackColor = false;
             this.btnNextBillPage.Click += new System.EventHandler(this.btnNextBillPage_Click);
             // 
             // btnPreviousBillPage
             // 
-            this.btnPreviousBillPage.BackColor = System.Drawing.Color.Silver;
-            this.btnPreviousBillPage.Location = new System.Drawing.Point(84, 366);
+            this.btnPreviousBillPage.BackColor = System.Drawing.Color.Gray;
+            this.btnPreviousBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreviousBillPage.ForeColor = System.Drawing.Color.White;
+            this.btnPreviousBillPage.Location = new System.Drawing.Point(84, 378);
             this.btnPreviousBillPage.Name = "btnPreviousBillPage";
             this.btnPreviousBillPage.Size = new System.Drawing.Size(75, 30);
             this.btnPreviousBillPage.TabIndex = 3;
-            this.btnPreviousBillPage.Text = "Previous";
+            this.btnPreviousBillPage.Text = "TRƯỚC";
             this.btnPreviousBillPage.UseVisualStyleBackColor = false;
             this.btnPreviousBillPage.Click += new System.EventHandler(this.btnPreviousBillPage_Click);
             // 
             // btnFirstBillPage
             // 
-            this.btnFirstBillPage.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnFirstBillPage.Location = new System.Drawing.Point(3, 366);
+            this.btnFirstBillPage.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFirstBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFirstBillPage.ForeColor = System.Drawing.Color.White;
+            this.btnFirstBillPage.Location = new System.Drawing.Point(3, 378);
             this.btnFirstBillPage.Name = "btnFirstBillPage";
             this.btnFirstBillPage.Size = new System.Drawing.Size(75, 30);
             this.btnFirstBillPage.TabIndex = 1;
-            this.btnFirstBillPage.Text = "First";
+            this.btnFirstBillPage.Text = "ĐẦU";
             this.btnFirstBillPage.UseVisualStyleBackColor = false;
             this.btnFirstBillPage.Click += new System.EventHandler(this.btnFirstBillPage_Click);
             // 
@@ -1139,20 +1204,9 @@
             this.rpViewer.Location = new System.Drawing.Point(12, 12);
             this.rpViewer.Name = "rpViewer";
             this.rpViewer.SelectedIndex = 0;
-            this.rpViewer.Size = new System.Drawing.Size(764, 469);
+            this.rpViewer.Size = new System.Drawing.Size(764, 481);
             this.rpViewer.TabIndex = 0;
             this.rpViewer.SelectedIndexChanged += new System.EventHandler(this.rpViewer_SelectedIndexChanged);
-            // 
-            // btnResetPassword
-            // 
-            this.btnResetPassword.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnResetPassword.Location = new System.Drawing.Point(242, 147);
-            this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(102, 50);
-            this.btnResetPassword.TabIndex = 4;
-            this.btnResetPassword.Text = "Đặt lại mật khẩu";
-            this.btnResetPassword.UseVisualStyleBackColor = false;
-            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // dtgvBill1
             // 

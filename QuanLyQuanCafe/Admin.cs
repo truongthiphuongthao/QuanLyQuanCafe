@@ -88,6 +88,7 @@ namespace QuanLyQuanCafe
         {
             dtgvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;
+
             dtgvCategory.DataSource = categoryList;
             dtgvTable.DataSource = tableList;
             LoadDateTimePickerBill();
@@ -102,7 +103,10 @@ namespace QuanLyQuanCafe
             AddTableBinding();
             LoadTableIntoCombobox(cbTableStatus);
             AddAccountBinding();
-            
+
+            dtgvFood.Columns["ID"].Visible = false;
+            dtgvCategory.Columns["ID"].Visible = false;
+            dtgvTable.Columns["ID"].Visible = false;
         }
         void AddAccountBinding()
         {
@@ -131,7 +135,7 @@ namespace QuanLyQuanCafe
             txbFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name", true, DataSourceUpdateMode.Never));
             txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id", true, DataSourceUpdateMode.Never));
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price", true, DataSourceUpdateMode.Never));
-            //cbFoodCategory.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "idCategory", true, DataSourceUpdateMode.Never));
+            //cbFoodCategory.DatsaBindings.Add(new Binding("Text", dtgvFood.DataSource, "idCategory", true, DataSourceUpdateMode.Never));
             // cho a xin schema
         }
         void AddTableBinding()
@@ -189,6 +193,7 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Thêm tài khoản thất bại");
             }
             LoadAccount();
+
         }
         void EditAccount(string userName, string displayName, int type)
         {
@@ -201,6 +206,7 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Cập nhật tài khoản thất bại");
             }
             LoadAccount();
+
         }
         void DeleteAccount(string userName)
         {
@@ -578,12 +584,6 @@ namespace QuanLyQuanCafe
         }
 
 
-
-
-
-
-
-
         #endregion
 
         private void txbTableName_TextChanged(object sender, EventArgs e)
@@ -660,7 +660,8 @@ namespace QuanLyQuanCafe
         {
            //MessageBox.Show("Will call update");
            foodList.DataSource = FoodDAO.Instance.GetListFood();
-           //dtgvFood.DataSource = foodList;
+           // binding de do di, e khoi an
+
         }
 
         private void label14_Click(object sender, EventArgs e)

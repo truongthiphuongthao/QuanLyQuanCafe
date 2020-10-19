@@ -21,39 +21,63 @@ namespace QuanLyQuanCafe.DTO
             this.Name = row["name"].ToString();
             if (row["idCategory"] == DBNull.Value)
             {
-                this.categoryID = -1; 
+                this.CategoryID = -1; 
             }
             else
             {
-                this.categoryID = (int)row["idCategory"];
+                this.CategoryID = (int)row["idCategory"];
+               
             }
             
+            if (row.Table.Columns.Contains("categoryName"))
+            {
+                this.CategoryName = row["categoryName"].ToString();
+            }
             
-            this.price = (float)Convert.ToDouble(row["price"].ToString());
+            this.Price = (float)Convert.ToDouble(row["price"].ToString());
         }
+
         private int iD;
         private string name;
         private int categoryID;
         private float price;
 
+        private string categoryName;
+
+        [System.ComponentModel.DisplayName("ID")]
         public int ID 
         {
             get { return iD; }
             set { iD = value; }
         }
+
+        [System.ComponentModel.DisplayName("Tên món")]
         public string Name 
         {
             get { return name; }
             set { name = value; }
         }
+
+
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.DisplayName("Phân loại")]
         public int CategoryID 
         {
             get { return categoryID; }
             set { categoryID = value; }
         }
+
+        [System.ComponentModel.DisplayName("Giá")]
         public float Price {
             get { return price; }
             set { price = value; }
+        }
+
+        [System.ComponentModel.DisplayName("Thuộc loại")]
+        public string CategoryName
+        {
+            get { return categoryName; }
+            set { categoryName = value; }
         }
     }
 }

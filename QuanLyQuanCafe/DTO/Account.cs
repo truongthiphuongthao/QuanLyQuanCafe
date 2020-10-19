@@ -21,30 +21,39 @@ namespace QuanLyQuanCafe.DTO
             this.UserName = row["userName"].ToString();
             this.DisplayName = row["displayName"].ToString();
             this.Type = (int)row["type"];
-            this.Password = row["password"].ToString();
+
+            if (row.Table.Columns.Contains("password"))
+            {
+                this.Password = row["Password"].ToString();
+            }
+            
+            
         }
         private string userName;
         private string displayName;
         private string password;
         private int type;
+        [System.ComponentModel.DisplayName("Tên tài khoản")]
         public string UserName 
         {
             get { return userName; }
             set { userName = value; }
         }
-
+        [System.ComponentModel.DisplayName("Tên hiển thị")]
         public string DisplayName 
         {
             get { return displayName; }
             set { displayName = value; }
         }
 
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.DisplayName("Mật khẩu")]
         public string Password 
         {
             get { return password; }
             set { password = value; }
         }
-
+        [System.ComponentModel.DisplayName("Loại tài khoản")]
         public int Type 
         {
             get { return type; }
@@ -52,3 +61,4 @@ namespace QuanLyQuanCafe.DTO
         }
     }
 }
+

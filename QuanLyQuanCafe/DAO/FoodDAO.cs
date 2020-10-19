@@ -44,7 +44,8 @@ namespace QuanLyQuanCafe.DAO
         {
             List<Food> list = new List<Food>();
 
-            string query = "select * from dbo.Food where idCategory is not NULL";
+            // string query = "select * from dbo.Food where idCategory is not NULL";
+            string query = "select f.id, f.name, f.price, fc.name as categoryName, f.idCategory from Food as f, FoodCategory as fc where f.idCategory is not null and f.idCategory = fc.id";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)

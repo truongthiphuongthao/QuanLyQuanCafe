@@ -39,7 +39,7 @@ namespace QuanLyQuanCafe
         {
             adminToolStripMenuItem.Enabled = type == 1;
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
-
+            
         }
         public void LoadCategory() 
         {

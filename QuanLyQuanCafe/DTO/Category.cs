@@ -20,12 +20,13 @@ namespace QuanLyQuanCafe.DTO
         }
         private int iD;
         private string name;
+        [System.ComponentModel.DisplayName("ID")]
         public int ID 
         {
             get { return iD; }
             set { iD = value; }
         }
-
+        [System.ComponentModel.DisplayName("Tên loại")]
         public string Name 
         {
             get { return name; }
