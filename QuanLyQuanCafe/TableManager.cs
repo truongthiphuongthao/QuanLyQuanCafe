@@ -41,6 +41,8 @@ namespace QuanLyQuanCafe
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
             
         }
+
+
         public void LoadCategory() 
         {
             List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
@@ -116,10 +118,16 @@ namespace QuanLyQuanCafe
            
 
         }
+
+        public void LoadTableOnComboBox()
+        {
+            LoadComboboxTable(cbSwitchTable);
+        }
         void LoadComboboxTable(ComboBox cb)
         {
             cb.DataSource = TableDAO.Instance.LoadTableList();
             cb.DisplayMember = "Name";
+            cb.Update();
         }
         #endregion
 
@@ -238,6 +246,8 @@ namespace QuanLyQuanCafe
                 return;
 
             Category selected = cb.SelectedItem as Category;
+            if (selected == null)
+                return;
             id = selected.ID;
 
             LoadFoodListByCategoryID(id);
@@ -315,7 +325,10 @@ namespace QuanLyQuanCafe
 
         }
 
-       
+        private void cbSwitchTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     #endregion
 }

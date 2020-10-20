@@ -374,6 +374,7 @@ namespace QuanLyQuanCafe
                 if (insertTable != null)
                     insertTable(this, new EventArgs());
                 this.tableManagerForm.LoadTable();
+                this.tableManagerForm.LoadTableOnComboBox();
             }
             else
             {
@@ -434,6 +435,7 @@ namespace QuanLyQuanCafe
                 if (updateTable != null)
                     updateTable(this, new EventArgs());
                 this.tableManagerForm.LoadTable();
+                this.tableManagerForm.LoadTableOnComboBox();
             }
             else
             {
@@ -494,6 +496,8 @@ namespace QuanLyQuanCafe
                     if (deleteTable != null)
                         deleteTable(this, new EventArgs());
                     this.tableManagerForm.LoadTable();
+
+                    this.tableManagerForm.LoadTableOnComboBox();
                 }
                 else
                 {

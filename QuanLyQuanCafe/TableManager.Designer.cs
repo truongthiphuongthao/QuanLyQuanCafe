@@ -209,6 +209,7 @@
             this.cbSwitchTable.Name = "cbSwitchTable";
             this.cbSwitchTable.Size = new System.Drawing.Size(65, 21);
             this.cbSwitchTable.TabIndex = 3;
+            this.cbSwitchTable.SelectedIndexChanged += new System.EventHandler(this.cbSwitchTable_SelectedIndexChanged);
             // 
             // btnSwitchTable
             // 
